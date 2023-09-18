@@ -1,0 +1,100 @@
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 185.2343750000 MiB 185.2343750000 MiB           1   @profile(precision=10,stream=open("BNG(breastTumor)_ARF.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 186.4179687500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 186.4179687500 MiB   1.1835937500 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 186.4179687500 MiB 186.4179687500 MiB           1   @profile(precision=10,stream=open("BNG(breastTumor)_ARF.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 187.3945312500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 187.3945312500 MiB   0.9765625000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 187.3945312500 MiB 187.3945312500 MiB           1   @profile(precision=10,stream=open("BNG(breastTumor)_ARF.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 188.2929687500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 188.2929687500 MiB   0.8984375000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 188.2929687500 MiB 188.2929687500 MiB           1   @profile(precision=10,stream=open("BNG(breastTumor)_ARF.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 189.4023437500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 189.4023437500 MiB   1.1093750000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 189.4023437500 MiB 189.4023437500 MiB           1   @profile(precision=10,stream=open("BNG(breastTumor)_ARF.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 190.3398437500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 190.3398437500 MiB   0.9375000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 190.3398437500 MiB 190.3398437500 MiB           1   @profile(precision=10,stream=open("BNG(breastTumor)_ARF.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 191.2070312500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 191.2070312500 MiB   0.8671875000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 191.2070312500 MiB 191.2070312500 MiB           1   @profile(precision=10,stream=open("BNG(breastTumor)_ARF.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 192.1875000000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 192.1875000000 MiB   0.9804687500 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 192.1875000000 MiB 192.1875000000 MiB           1   @profile(precision=10,stream=open("BNG(breastTumor)_ARF.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 193.2031250000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 193.2031250000 MiB   1.0156250000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 193.2031250000 MiB 193.2031250000 MiB           1   @profile(precision=10,stream=open("BNG(breastTumor)_ARF.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 194.2500000000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 194.2500000000 MiB   1.0468750000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 194.2500000000 MiB 194.2500000000 MiB           1   @profile(precision=10,stream=open("BNG(breastTumor)_ARF.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 195.3750000000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 195.3750000000 MiB   1.1250000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+

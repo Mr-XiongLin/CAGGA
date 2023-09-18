@@ -1,0 +1,100 @@
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 303.9882812500 MiB 303.9882812500 MiB           1   @profile(precision=10,stream=open("census_DWM.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 304.1562500000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 304.1562500000 MiB   0.1679687500 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 304.1562500000 MiB 304.1562500000 MiB           1   @profile(precision=10,stream=open("census_DWM.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 304.2187500000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 304.2187500000 MiB   0.0625000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 304.2812500000 MiB 304.2812500000 MiB           1   @profile(precision=10,stream=open("census_DWM.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 304.2812500000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 304.2812500000 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 304.2812500000 MiB 304.2812500000 MiB           1   @profile(precision=10,stream=open("census_DWM.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 304.4492187500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 304.4492187500 MiB   0.1679687500 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 304.4492187500 MiB 304.4492187500 MiB           1   @profile(precision=10,stream=open("census_DWM.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 304.4531250000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 304.4531250000 MiB   0.0039062500 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 304.4531250000 MiB 304.4531250000 MiB           1   @profile(precision=10,stream=open("census_DWM.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 304.4531250000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 304.3984375000 MiB  -0.0546875000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 304.3984375000 MiB 304.3984375000 MiB           1   @profile(precision=10,stream=open("census_DWM.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 304.3984375000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 304.3984375000 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 304.3984375000 MiB 304.3984375000 MiB           1   @profile(precision=10,stream=open("census_DWM.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 304.3984375000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 304.3984375000 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 304.3984375000 MiB 304.3984375000 MiB           1   @profile(precision=10,stream=open("census_DWM.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 304.3984375000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 304.3984375000 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 304.3984375000 MiB 304.3984375000 MiB           1   @profile(precision=10,stream=open("census_DWM.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 304.3984375000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 304.3984375000 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+

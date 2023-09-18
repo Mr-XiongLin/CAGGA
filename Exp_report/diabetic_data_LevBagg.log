@@ -1,0 +1,100 @@
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 251.3007812500 MiB 251.3007812500 MiB           1   @profile(precision=10,stream=open("diabetic_data_LevBagg.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 259.7187500000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 259.7187500000 MiB   8.4179687500 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 259.7187500000 MiB 259.7187500000 MiB           1   @profile(precision=10,stream=open("diabetic_data_LevBagg.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 259.8906250000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 259.8906250000 MiB   0.1718750000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 259.8906250000 MiB 259.8906250000 MiB           1   @profile(precision=10,stream=open("diabetic_data_LevBagg.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 259.8906250000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 259.8906250000 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 259.8906250000 MiB 259.8906250000 MiB           1   @profile(precision=10,stream=open("diabetic_data_LevBagg.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 259.8906250000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 259.8671875000 MiB  -0.0234375000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 259.8671875000 MiB 259.8671875000 MiB           1   @profile(precision=10,stream=open("diabetic_data_LevBagg.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 259.8671875000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 259.8671875000 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 259.8671875000 MiB 259.8671875000 MiB           1   @profile(precision=10,stream=open("diabetic_data_LevBagg.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 259.8671875000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 259.8671875000 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 259.8671875000 MiB 259.8671875000 MiB           1   @profile(precision=10,stream=open("diabetic_data_LevBagg.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 259.8671875000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 259.8671875000 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 259.8671875000 MiB 259.8671875000 MiB           1   @profile(precision=10,stream=open("diabetic_data_LevBagg.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 259.8671875000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 259.8671875000 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 259.8671875000 MiB 259.8671875000 MiB           1   @profile(precision=10,stream=open("diabetic_data_LevBagg.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 259.8671875000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 259.8671875000 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 259.8671875000 MiB 259.8671875000 MiB           1   @profile(precision=10,stream=open("diabetic_data_LevBagg.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 259.8671875000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 259.8671875000 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
