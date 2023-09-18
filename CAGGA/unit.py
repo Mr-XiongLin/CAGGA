@@ -6,9 +6,14 @@ Created on Mon Sep 18 11:28:06 2023
 """
 import numpy as np
 import pandas as pd
+import torch
 from math import *
 from skmultiflow.drift_detection.base_drift_detector import BaseDriftDetector
 
+def softmax(X):
+    X_exp = torch.exp(X)
+    partition = X_exp.sum(1, keepdim=True)
+    return X_exp/partition
 
 class HIC(BaseDriftDetector):
 
