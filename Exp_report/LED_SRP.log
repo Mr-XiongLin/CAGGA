@@ -1,0 +1,100 @@
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 173.1601562500 MiB 173.1601562500 MiB           1   @profile(precision=10,stream=open("LED_SRP.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 174.7500000000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 174.7500000000 MiB   1.5898437500 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 174.7500000000 MiB 174.7500000000 MiB           1   @profile(precision=10,stream=open("LED_SRP.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 175.6679687500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 175.6679687500 MiB   0.9179687500 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 175.6679687500 MiB 175.6679687500 MiB           1   @profile(precision=10,stream=open("LED_SRP.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 175.7382812500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 175.7382812500 MiB   0.0703125000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 175.7382812500 MiB 175.7382812500 MiB           1   @profile(precision=10,stream=open("LED_SRP.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 175.7773437500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 175.7773437500 MiB   0.0390625000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 175.7773437500 MiB 175.7773437500 MiB           1   @profile(precision=10,stream=open("LED_SRP.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 175.7773437500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 175.7773437500 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 175.7773437500 MiB 175.7773437500 MiB           1   @profile(precision=10,stream=open("LED_SRP.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 175.7773437500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 175.7187500000 MiB  -0.0585937500 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 175.7187500000 MiB 175.7187500000 MiB           1   @profile(precision=10,stream=open("LED_SRP.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 175.7226562500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 175.7226562500 MiB   0.0039062500 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 175.7226562500 MiB 175.7226562500 MiB           1   @profile(precision=10,stream=open("LED_SRP.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 175.7226562500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 175.7226562500 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 175.7226562500 MiB 175.7226562500 MiB           1   @profile(precision=10,stream=open("LED_SRP.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 175.7226562500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 175.7226562500 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 175.7226562500 MiB 175.7226562500 MiB           1   @profile(precision=10,stream=open("LED_SRP.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 175.7226562500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 175.7226562500 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+

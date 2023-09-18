@@ -1,0 +1,100 @@
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 172.6875000000 MiB 172.6875000000 MiB           1   @profile(precision=10,stream=open("MIXED_ARF.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 173.8476562500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 173.8476562500 MiB   1.1601562500 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 173.8476562500 MiB 173.8476562500 MiB           1   @profile(precision=10,stream=open("MIXED_ARF.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 174.2265625000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 174.2265625000 MiB   0.3789062500 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 174.2265625000 MiB 174.2265625000 MiB           1   @profile(precision=10,stream=open("MIXED_ARF.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 174.5390625000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 174.5390625000 MiB   0.3125000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 174.5390625000 MiB 174.5390625000 MiB           1   @profile(precision=10,stream=open("MIXED_ARF.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 174.8906250000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 174.8906250000 MiB   0.3515625000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 174.8906250000 MiB 174.8906250000 MiB           1   @profile(precision=10,stream=open("MIXED_ARF.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 175.2656250000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 175.2656250000 MiB   0.3750000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 175.2656250000 MiB 175.2656250000 MiB           1   @profile(precision=10,stream=open("MIXED_ARF.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 175.5781250000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 175.5781250000 MiB   0.3125000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 175.5781250000 MiB 175.5781250000 MiB           1   @profile(precision=10,stream=open("MIXED_ARF.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 175.8906250000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 175.8906250000 MiB   0.3125000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 175.8906250000 MiB 175.8906250000 MiB           1   @profile(precision=10,stream=open("MIXED_ARF.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 176.2421875000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 176.2421875000 MiB   0.3515625000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 176.2617187500 MiB 176.2617187500 MiB           1   @profile(precision=10,stream=open("MIXED_ARF.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 176.6406250000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 176.6406250000 MiB   0.3789062500 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 176.6406250000 MiB 176.6406250000 MiB           1   @profile(precision=10,stream=open("MIXED_ARF.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 177.1562500000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 177.1562500000 MiB   0.5156250000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+

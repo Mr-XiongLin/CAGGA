@@ -1,0 +1,100 @@
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 173.4453125000 MiB 173.4453125000 MiB           1   @profile(precision=10,stream=open("Tree_AEE.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 173.7851562500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 173.7851562500 MiB   0.3398437500 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 173.9062500000 MiB 173.9062500000 MiB           1   @profile(precision=10,stream=open("Tree_AEE.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 173.9062500000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 173.9062500000 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 173.9062500000 MiB 173.9062500000 MiB           1   @profile(precision=10,stream=open("Tree_AEE.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 173.9101562500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 173.9101562500 MiB   0.0039062500 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 173.9101562500 MiB 173.9101562500 MiB           1   @profile(precision=10,stream=open("Tree_AEE.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 173.9843750000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 173.9843750000 MiB   0.0742187500 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 173.9843750000 MiB 173.9843750000 MiB           1   @profile(precision=10,stream=open("Tree_AEE.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 173.9960937500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 173.9960937500 MiB   0.0117187500 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 173.9960937500 MiB 173.9960937500 MiB           1   @profile(precision=10,stream=open("Tree_AEE.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 174.0078125000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 174.0078125000 MiB   0.0117187500 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 174.0078125000 MiB 174.0078125000 MiB           1   @profile(precision=10,stream=open("Tree_AEE.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 174.0195312500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 174.0195312500 MiB   0.0117187500 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 174.0195312500 MiB 174.0195312500 MiB           1   @profile(precision=10,stream=open("Tree_AEE.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 174.0195312500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 173.9765625000 MiB  -0.0429687500 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 173.9765625000 MiB 173.9765625000 MiB           1   @profile(precision=10,stream=open("Tree_AEE.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 173.9960937500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 173.9960937500 MiB   0.0195312500 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 173.9960937500 MiB 173.9960937500 MiB           1   @profile(precision=10,stream=open("Tree_AEE.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 174.0078125000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 174.0078125000 MiB   0.0117187500 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+

@@ -1,0 +1,100 @@
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 200.9375000000 MiB 200.9375000000 MiB           1   @profile(precision=10,stream=open("Stream2A_SRP.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 208.2617187500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 208.2617187500 MiB   7.3242187500 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 208.2617187500 MiB 208.2617187500 MiB           1   @profile(precision=10,stream=open("Stream2A_SRP.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 208.9453125000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 208.9453125000 MiB   0.6835937500 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 208.9453125000 MiB 208.9453125000 MiB           1   @profile(precision=10,stream=open("Stream2A_SRP.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 209.0625000000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 209.0625000000 MiB   0.1171875000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 209.0625000000 MiB 209.0625000000 MiB           1   @profile(precision=10,stream=open("Stream2A_SRP.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 209.0625000000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 209.0078125000 MiB  -0.0546875000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 209.0078125000 MiB 209.0078125000 MiB           1   @profile(precision=10,stream=open("Stream2A_SRP.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 209.0078125000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 209.0078125000 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 209.0078125000 MiB 209.0078125000 MiB           1   @profile(precision=10,stream=open("Stream2A_SRP.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 209.0078125000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 209.0078125000 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 209.0078125000 MiB 209.0078125000 MiB           1   @profile(precision=10,stream=open("Stream2A_SRP.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 209.0078125000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 209.0078125000 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 209.0078125000 MiB 209.0078125000 MiB           1   @profile(precision=10,stream=open("Stream2A_SRP.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 209.0078125000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 209.0078125000 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 209.0078125000 MiB 209.0078125000 MiB           1   @profile(precision=10,stream=open("Stream2A_SRP.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 209.0078125000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 209.0078125000 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 209.0078125000 MiB 209.0078125000 MiB           1   @profile(precision=10,stream=open("Stream2A_SRP.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 209.0078125000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 209.0078125000 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+

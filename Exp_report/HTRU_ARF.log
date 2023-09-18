@@ -1,0 +1,100 @@
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 176.2226562500 MiB 176.2226562500 MiB           1   @profile(precision=10,stream=open("HTRU_ARF.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 176.9179687500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 176.9179687500 MiB   0.6953125000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 176.9179687500 MiB 176.9179687500 MiB           1   @profile(precision=10,stream=open("HTRU_ARF.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 177.1445312500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 177.1445312500 MiB   0.2265625000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 177.1445312500 MiB 177.1445312500 MiB           1   @profile(precision=10,stream=open("HTRU_ARF.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 177.3085937500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 177.3085937500 MiB   0.1640625000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 177.3085937500 MiB 177.3085937500 MiB           1   @profile(precision=10,stream=open("HTRU_ARF.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 177.6210937500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 177.6210937500 MiB   0.3125000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 177.6210937500 MiB 177.6210937500 MiB           1   @profile(precision=10,stream=open("HTRU_ARF.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 177.8710937500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 177.8710937500 MiB   0.2500000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 177.8710937500 MiB 177.8710937500 MiB           1   @profile(precision=10,stream=open("HTRU_ARF.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 178.0664062500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 178.0664062500 MiB   0.1953125000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 178.0664062500 MiB 178.0664062500 MiB           1   @profile(precision=10,stream=open("HTRU_ARF.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 178.4335937500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 178.4335937500 MiB   0.3671875000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 178.4335937500 MiB 178.4335937500 MiB           1   @profile(precision=10,stream=open("HTRU_ARF.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 178.8164062500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 178.8164062500 MiB   0.3828125000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 178.8164062500 MiB 178.8164062500 MiB           1   @profile(precision=10,stream=open("HTRU_ARF.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 179.1289062500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 179.1289062500 MiB   0.3125000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 179.1289062500 MiB 179.1289062500 MiB           1   @profile(precision=10,stream=open("HTRU_ARF.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 179.4062500000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 179.4062500000 MiB   0.2773437500 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+

@@ -1,0 +1,10 @@
+Filename: C:\Users\xionglin\.spyder-py3\autosave\meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 203.1250000000 MiB 203.1250000000 MiB           1   @profile(precision=10,stream=open("LED_ARF.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 205.0156250000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 205.0156250000 MiB   1.8906250000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+

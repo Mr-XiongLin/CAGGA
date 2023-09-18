@@ -1,0 +1,570 @@
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   204 303.5703125000 MiB 303.5703125000 MiB           1       @profile (precision=10,stream=open("NonSkin_GC.log", "w+"))
+   205                                             def bulitModel(self,ep,X,y):
+   206 303.5703125000 MiB   0.0000000000 MiB           1           if ep > 0:
+   207                                                     y_my_pred = (self.predict(X)>=0.5).astype(int)
+   208                                                     DSGA_accuracy = accuracy_score(y,y_my_pred)
+   209                                                     Acc.append(DSGA_accuracy)
+   210                                                 else:
+   211 303.7109375000 MiB   0.1406250000 MiB           1               self.global_HTC.fit(X,y)
+   212                                                 #proposed algrithm train start,record the start time
+   213 303.7109375000 MiB   0.0000000000 MiB           1           NA_start = time.time()
+   214                                                 # XTrain,XTest,YTrain,YTest = train_test_split(X,y,random_state=11,test_size=0.2)
+   215 303.7109375000 MiB   0.0000000000 MiB           1           XTrain,XTest,YTrain,YTest = X,X,y,y
+   216                                                 # self.train_Classifiers(XTrain,YTrain)
+   217 303.8085937500 MiB   0.0976562500 MiB           1           self.train_Classifiers(X,y)
+   218 303.8085937500 MiB   0.0000000000 MiB           1           nn_input = self.classifiers_out(XTrain)
+   219 303.8085937500 MiB   0.0000000000 MiB           1           nn_meta_input = self.classifiers_out(XTest)
+   220                                                 
+   221 303.8125000000 MiB   0.0039062500 MiB           1           self.theta = self.theta/max(self.theta)  #normalization
+   222 303.8125000000 MiB   0.0000000000 MiB           1           MC_len = len(self.Classifiers)
+   223 303.8125000000 MiB   0.0000000000 MiB           1           self.g = np.array([])
+   224 303.8828125000 MiB   0.0000000000 MiB         101           for e in range(self.epochs):
+   225 303.8828125000 MiB   0.0000000000 MiB         100               self.theta_ = np.array([])
+   226                                                     #for storing gradient updates
+   227                                                     #for each base classfier, calc the weights gradient
+   228 303.8828125000 MiB   0.0000000000 MiB         100               a = nn_input*self.theta
+   229 303.8828125000 MiB   0.0078125000 MiB         100               YHat = self.sigmoid(a)
+   230 303.8828125000 MiB   0.0351562500 MiB         100               gradient = np.dot(nn_input.T,(YHat-YTrain.reshape(-1,1))).sum(axis=0) /(self.num_samples*1)
+   231 303.8828125000 MiB   0.0000000000 MiB         100               self.theta_ = np.append(self.theta_,self.theta-self.alpha*gradient)
+   232 303.8828125000 MiB   0.0195312500 MiB         100               self.g = np.append(self.g,self.theta-self.theta_)
+   233 303.8828125000 MiB   0.0000000000 MiB         100               normalization_factor = 0.000000000000000001
+   234 303.8828125000 MiB   0.0000000000 MiB         200               for i in range(MC_len):
+   235 303.8828125000 MiB   0.0000000000 MiB         200                   for j in range(MC_len):      
+   236 303.8828125000 MiB   0.0000000000 MiB         100                       normalization_factor += np.abs(np.dot(self.g[i].T, self.g[j]))
+   237 303.8828125000 MiB   0.0000000000 MiB         100               w = np.zeros(MC_len)
+   238 303.8828125000 MiB   0.0000000000 MiB         200               for i in range(MC_len):
+   239 303.8828125000 MiB   0.0000000000 MiB         200                   for j in range(MC_len):
+   240 303.8828125000 MiB   0.0000000000 MiB         100                       w[i] += np.dot(self.g[i].T, self.g[j])
+   241 303.8828125000 MiB   0.0000000000 MiB         100                   w[i] = w[i] / normalization_factor
+   242                                                         
+   243                                                     # min_w, max_w = min(w), max(w)
+   244                                                     # w = [(x-min_w)/(max_w-min_w+0.0001) for x in w]
+   245                                                     #initialize meta gradients
+   246 303.8828125000 MiB   0.0000000000 MiB         100               weighted_gradient = np.zeros(MC_len)
+   247 303.8828125000 MiB   0.0078125000 MiB         100               meta_a = np.matmul(nn_meta_input,self.theta_)
+   248 303.8828125000 MiB   0.0000000000 MiB         100               YPred = self.sigmoid(meta_a)
+   249                                                     #compute meta gradients
+   250 303.8828125000 MiB   0.0000000000 MiB         100               meta_gradient = np.dot(nn_meta_input.T,(YPred-YTest)) / (self.num_samples*1)
+   251 303.8828125000 MiB   0.0000000000 MiB         100               weighted_gradient += np.sum(w*meta_gradient)
+   252 303.8828125000 MiB   0.0000000000 MiB         100               self.theta = self.theta + self.beta*weighted_gradient/MC_len
+   253                                                 # print(self.theta)
+   254 303.8828125000 MiB   0.0000000000 MiB           1           Time.append(time.time() - NA_start)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   204 303.8828125000 MiB 303.8828125000 MiB           1       @profile (precision=10,stream=open("NonSkin_GC.log", "w+"))
+   205                                             def bulitModel(self,ep,X,y):
+   206 303.8828125000 MiB   0.0000000000 MiB           1           if ep > 0:
+   207 303.9531250000 MiB   0.0703125000 MiB           1               y_my_pred = (self.predict(X)>=0.5).astype(int)
+   208 303.9531250000 MiB   0.0000000000 MiB           1               DSGA_accuracy = accuracy_score(y,y_my_pred)
+   209 303.9531250000 MiB   0.0000000000 MiB           1               Acc.append(DSGA_accuracy)
+   210                                                 else:
+   211                                                     self.global_HTC.fit(X,y)
+   212                                                 #proposed algrithm train start,record the start time
+   213 303.9531250000 MiB   0.0000000000 MiB           1           NA_start = time.time()
+   214                                                 # XTrain,XTest,YTrain,YTest = train_test_split(X,y,random_state=11,test_size=0.2)
+   215 303.9531250000 MiB   0.0000000000 MiB           1           XTrain,XTest,YTrain,YTest = X,X,y,y
+   216                                                 # self.train_Classifiers(XTrain,YTrain)
+   217 303.9531250000 MiB   0.0000000000 MiB           1           self.train_Classifiers(X,y)
+   218 303.9531250000 MiB   0.0000000000 MiB           1           nn_input = self.classifiers_out(XTrain)
+   219 303.9531250000 MiB   0.0000000000 MiB           1           nn_meta_input = self.classifiers_out(XTest)
+   220                                                 
+   221 303.9531250000 MiB   0.0000000000 MiB           1           self.theta = self.theta/max(self.theta)  #normalization
+   222 303.9531250000 MiB   0.0000000000 MiB           1           MC_len = len(self.Classifiers)
+   223 303.9531250000 MiB   0.0000000000 MiB           1           self.g = np.array([])
+   224 303.9531250000 MiB   0.0000000000 MiB         101           for e in range(self.epochs):
+   225 303.9531250000 MiB   0.0000000000 MiB         100               self.theta_ = np.array([])
+   226                                                     #for storing gradient updates
+   227                                                     #for each base classfier, calc the weights gradient
+   228 303.9531250000 MiB   0.0000000000 MiB         100               a = nn_input*self.theta
+   229 303.9531250000 MiB   0.0000000000 MiB         100               YHat = self.sigmoid(a)
+   230 303.9531250000 MiB   0.0000000000 MiB         100               gradient = np.dot(nn_input.T,(YHat-YTrain.reshape(-1,1))).sum(axis=0) /(self.num_samples*1)
+   231 303.9531250000 MiB   0.0000000000 MiB         100               self.theta_ = np.append(self.theta_,self.theta-self.alpha*gradient)
+   232 303.9531250000 MiB   0.0000000000 MiB         100               self.g = np.append(self.g,self.theta-self.theta_)
+   233 303.9531250000 MiB   0.0000000000 MiB         100               normalization_factor = 0.000000000000000001
+   234 303.9531250000 MiB   0.0000000000 MiB         200               for i in range(MC_len):
+   235 303.9531250000 MiB   0.0000000000 MiB         200                   for j in range(MC_len):      
+   236 303.9531250000 MiB   0.0000000000 MiB         100                       normalization_factor += np.abs(np.dot(self.g[i].T, self.g[j]))
+   237 303.9531250000 MiB   0.0000000000 MiB         100               w = np.zeros(MC_len)
+   238 303.9531250000 MiB   0.0000000000 MiB         200               for i in range(MC_len):
+   239 303.9531250000 MiB   0.0000000000 MiB         200                   for j in range(MC_len):
+   240 303.9531250000 MiB   0.0000000000 MiB         100                       w[i] += np.dot(self.g[i].T, self.g[j])
+   241 303.9531250000 MiB   0.0000000000 MiB         100                   w[i] = w[i] / normalization_factor
+   242                                                         
+   243                                                     # min_w, max_w = min(w), max(w)
+   244                                                     # w = [(x-min_w)/(max_w-min_w+0.0001) for x in w]
+   245                                                     #initialize meta gradients
+   246 303.9531250000 MiB   0.0000000000 MiB         100               weighted_gradient = np.zeros(MC_len)
+   247 303.9531250000 MiB   0.0000000000 MiB         100               meta_a = np.matmul(nn_meta_input,self.theta_)
+   248 303.9531250000 MiB   0.0000000000 MiB         100               YPred = self.sigmoid(meta_a)
+   249                                                     #compute meta gradients
+   250 303.9531250000 MiB   0.0000000000 MiB         100               meta_gradient = np.dot(nn_meta_input.T,(YPred-YTest)) / (self.num_samples*1)
+   251 303.9531250000 MiB   0.0000000000 MiB         100               weighted_gradient += np.sum(w*meta_gradient)
+   252 303.9531250000 MiB   0.0000000000 MiB         100               self.theta = self.theta + self.beta*weighted_gradient/MC_len
+   253                                                 # print(self.theta)
+   254 303.9531250000 MiB   0.0000000000 MiB           1           Time.append(time.time() - NA_start)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   204 303.9570312500 MiB 303.9570312500 MiB           1       @profile (precision=10,stream=open("NonSkin_GC.log", "w+"))
+   205                                             def bulitModel(self,ep,X,y):
+   206 303.9570312500 MiB   0.0000000000 MiB           1           if ep > 0:
+   207 303.9570312500 MiB   0.0000000000 MiB           1               y_my_pred = (self.predict(X)>=0.5).astype(int)
+   208 303.9570312500 MiB   0.0000000000 MiB           1               DSGA_accuracy = accuracy_score(y,y_my_pred)
+   209 303.9570312500 MiB   0.0000000000 MiB           1               Acc.append(DSGA_accuracy)
+   210                                                 else:
+   211                                                     self.global_HTC.fit(X,y)
+   212                                                 #proposed algrithm train start,record the start time
+   213 303.9570312500 MiB   0.0000000000 MiB           1           NA_start = time.time()
+   214                                                 # XTrain,XTest,YTrain,YTest = train_test_split(X,y,random_state=11,test_size=0.2)
+   215 303.9570312500 MiB   0.0000000000 MiB           1           XTrain,XTest,YTrain,YTest = X,X,y,y
+   216                                                 # self.train_Classifiers(XTrain,YTrain)
+   217 303.9570312500 MiB   0.0000000000 MiB           1           self.train_Classifiers(X,y)
+   218 303.9570312500 MiB   0.0000000000 MiB           1           nn_input = self.classifiers_out(XTrain)
+   219 303.9570312500 MiB   0.0000000000 MiB           1           nn_meta_input = self.classifiers_out(XTest)
+   220                                                 
+   221 303.9570312500 MiB   0.0000000000 MiB           1           self.theta = self.theta/max(self.theta)  #normalization
+   222 303.9570312500 MiB   0.0000000000 MiB           1           MC_len = len(self.Classifiers)
+   223 303.9570312500 MiB   0.0000000000 MiB           1           self.g = np.array([])
+   224 303.9570312500 MiB   0.0000000000 MiB         101           for e in range(self.epochs):
+   225 303.9570312500 MiB   0.0000000000 MiB         100               self.theta_ = np.array([])
+   226                                                     #for storing gradient updates
+   227                                                     #for each base classfier, calc the weights gradient
+   228 303.9570312500 MiB   0.0000000000 MiB         100               a = nn_input*self.theta
+   229 303.9570312500 MiB   0.0000000000 MiB         100               YHat = self.sigmoid(a)
+   230 303.9570312500 MiB   0.0000000000 MiB         100               gradient = np.dot(nn_input.T,(YHat-YTrain.reshape(-1,1))).sum(axis=0) /(self.num_samples*1)
+   231 303.9570312500 MiB   0.0000000000 MiB         100               self.theta_ = np.append(self.theta_,self.theta-self.alpha*gradient)
+   232 303.9570312500 MiB   0.0000000000 MiB         100               self.g = np.append(self.g,self.theta-self.theta_)
+   233 303.9570312500 MiB   0.0000000000 MiB         100               normalization_factor = 0.000000000000000001
+   234 303.9570312500 MiB   0.0000000000 MiB         200               for i in range(MC_len):
+   235 303.9570312500 MiB   0.0000000000 MiB         200                   for j in range(MC_len):      
+   236 303.9570312500 MiB   0.0000000000 MiB         100                       normalization_factor += np.abs(np.dot(self.g[i].T, self.g[j]))
+   237 303.9570312500 MiB   0.0000000000 MiB         100               w = np.zeros(MC_len)
+   238 303.9570312500 MiB   0.0000000000 MiB         200               for i in range(MC_len):
+   239 303.9570312500 MiB   0.0000000000 MiB         200                   for j in range(MC_len):
+   240 303.9570312500 MiB   0.0000000000 MiB         100                       w[i] += np.dot(self.g[i].T, self.g[j])
+   241 303.9570312500 MiB   0.0000000000 MiB         100                   w[i] = w[i] / normalization_factor
+   242                                                         
+   243                                                     # min_w, max_w = min(w), max(w)
+   244                                                     # w = [(x-min_w)/(max_w-min_w+0.0001) for x in w]
+   245                                                     #initialize meta gradients
+   246 303.9570312500 MiB   0.0000000000 MiB         100               weighted_gradient = np.zeros(MC_len)
+   247 303.9570312500 MiB   0.0000000000 MiB         100               meta_a = np.matmul(nn_meta_input,self.theta_)
+   248 303.9570312500 MiB   0.0000000000 MiB         100               YPred = self.sigmoid(meta_a)
+   249                                                     #compute meta gradients
+   250 303.9570312500 MiB   0.0000000000 MiB         100               meta_gradient = np.dot(nn_meta_input.T,(YPred-YTest)) / (self.num_samples*1)
+   251 303.9570312500 MiB   0.0000000000 MiB         100               weighted_gradient += np.sum(w*meta_gradient)
+   252 303.9570312500 MiB   0.0000000000 MiB         100               self.theta = self.theta + self.beta*weighted_gradient/MC_len
+   253                                                 # print(self.theta)
+   254 303.9570312500 MiB   0.0000000000 MiB           1           Time.append(time.time() - NA_start)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   204 303.9570312500 MiB 303.9570312500 MiB           1       @profile (precision=10,stream=open("NonSkin_GC.log", "w+"))
+   205                                             def bulitModel(self,ep,X,y):
+   206 303.9570312500 MiB   0.0000000000 MiB           1           if ep > 0:
+   207 303.9570312500 MiB   0.0000000000 MiB           1               y_my_pred = (self.predict(X)>=0.5).astype(int)
+   208 303.9570312500 MiB   0.0000000000 MiB           1               DSGA_accuracy = accuracy_score(y,y_my_pred)
+   209 303.9570312500 MiB   0.0000000000 MiB           1               Acc.append(DSGA_accuracy)
+   210                                                 else:
+   211                                                     self.global_HTC.fit(X,y)
+   212                                                 #proposed algrithm train start,record the start time
+   213 303.9570312500 MiB   0.0000000000 MiB           1           NA_start = time.time()
+   214                                                 # XTrain,XTest,YTrain,YTest = train_test_split(X,y,random_state=11,test_size=0.2)
+   215 303.9570312500 MiB   0.0000000000 MiB           1           XTrain,XTest,YTrain,YTest = X,X,y,y
+   216                                                 # self.train_Classifiers(XTrain,YTrain)
+   217 303.9570312500 MiB   0.0000000000 MiB           1           self.train_Classifiers(X,y)
+   218 303.9570312500 MiB   0.0000000000 MiB           1           nn_input = self.classifiers_out(XTrain)
+   219 303.9570312500 MiB   0.0000000000 MiB           1           nn_meta_input = self.classifiers_out(XTest)
+   220                                                 
+   221 303.9570312500 MiB   0.0000000000 MiB           1           self.theta = self.theta/max(self.theta)  #normalization
+   222 303.9570312500 MiB   0.0000000000 MiB           1           MC_len = len(self.Classifiers)
+   223 303.9570312500 MiB   0.0000000000 MiB           1           self.g = np.array([])
+   224 303.9570312500 MiB   0.0000000000 MiB         101           for e in range(self.epochs):
+   225 303.9570312500 MiB   0.0000000000 MiB         100               self.theta_ = np.array([])
+   226                                                     #for storing gradient updates
+   227                                                     #for each base classfier, calc the weights gradient
+   228 303.9570312500 MiB   0.0000000000 MiB         100               a = nn_input*self.theta
+   229 303.9570312500 MiB   0.0000000000 MiB         100               YHat = self.sigmoid(a)
+   230 303.9570312500 MiB   0.0000000000 MiB         100               gradient = np.dot(nn_input.T,(YHat-YTrain.reshape(-1,1))).sum(axis=0) /(self.num_samples*1)
+   231 303.9570312500 MiB   0.0000000000 MiB         100               self.theta_ = np.append(self.theta_,self.theta-self.alpha*gradient)
+   232 303.9570312500 MiB   0.0000000000 MiB         100               self.g = np.append(self.g,self.theta-self.theta_)
+   233 303.9570312500 MiB   0.0000000000 MiB         100               normalization_factor = 0.000000000000000001
+   234 303.9570312500 MiB   0.0000000000 MiB         200               for i in range(MC_len):
+   235 303.9570312500 MiB   0.0000000000 MiB         200                   for j in range(MC_len):      
+   236 303.9570312500 MiB   0.0000000000 MiB         100                       normalization_factor += np.abs(np.dot(self.g[i].T, self.g[j]))
+   237 303.9570312500 MiB   0.0000000000 MiB         100               w = np.zeros(MC_len)
+   238 303.9570312500 MiB   0.0000000000 MiB         200               for i in range(MC_len):
+   239 303.9570312500 MiB   0.0000000000 MiB         200                   for j in range(MC_len):
+   240 303.9570312500 MiB   0.0000000000 MiB         100                       w[i] += np.dot(self.g[i].T, self.g[j])
+   241 303.9570312500 MiB   0.0000000000 MiB         100                   w[i] = w[i] / normalization_factor
+   242                                                         
+   243                                                     # min_w, max_w = min(w), max(w)
+   244                                                     # w = [(x-min_w)/(max_w-min_w+0.0001) for x in w]
+   245                                                     #initialize meta gradients
+   246 303.9570312500 MiB   0.0000000000 MiB         100               weighted_gradient = np.zeros(MC_len)
+   247 303.9570312500 MiB   0.0000000000 MiB         100               meta_a = np.matmul(nn_meta_input,self.theta_)
+   248 303.9570312500 MiB   0.0000000000 MiB         100               YPred = self.sigmoid(meta_a)
+   249                                                     #compute meta gradients
+   250 303.9570312500 MiB   0.0000000000 MiB         100               meta_gradient = np.dot(nn_meta_input.T,(YPred-YTest)) / (self.num_samples*1)
+   251 303.9570312500 MiB   0.0000000000 MiB         100               weighted_gradient += np.sum(w*meta_gradient)
+   252 303.9570312500 MiB   0.0000000000 MiB         100               self.theta = self.theta + self.beta*weighted_gradient/MC_len
+   253                                                 # print(self.theta)
+   254 303.9570312500 MiB   0.0000000000 MiB           1           Time.append(time.time() - NA_start)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   204 303.9570312500 MiB 303.9570312500 MiB           1       @profile (precision=10,stream=open("NonSkin_GC.log", "w+"))
+   205                                             def bulitModel(self,ep,X,y):
+   206 303.9570312500 MiB   0.0000000000 MiB           1           if ep > 0:
+   207 303.9570312500 MiB   0.0000000000 MiB           1               y_my_pred = (self.predict(X)>=0.5).astype(int)
+   208 303.9570312500 MiB   0.0000000000 MiB           1               DSGA_accuracy = accuracy_score(y,y_my_pred)
+   209 303.9570312500 MiB   0.0000000000 MiB           1               Acc.append(DSGA_accuracy)
+   210                                                 else:
+   211                                                     self.global_HTC.fit(X,y)
+   212                                                 #proposed algrithm train start,record the start time
+   213 303.9570312500 MiB   0.0000000000 MiB           1           NA_start = time.time()
+   214                                                 # XTrain,XTest,YTrain,YTest = train_test_split(X,y,random_state=11,test_size=0.2)
+   215 303.9570312500 MiB   0.0000000000 MiB           1           XTrain,XTest,YTrain,YTest = X,X,y,y
+   216                                                 # self.train_Classifiers(XTrain,YTrain)
+   217 303.9570312500 MiB   0.0000000000 MiB           1           self.train_Classifiers(X,y)
+   218 303.9570312500 MiB   0.0000000000 MiB           1           nn_input = self.classifiers_out(XTrain)
+   219 303.9570312500 MiB   0.0000000000 MiB           1           nn_meta_input = self.classifiers_out(XTest)
+   220                                                 
+   221 303.9570312500 MiB   0.0000000000 MiB           1           self.theta = self.theta/max(self.theta)  #normalization
+   222 303.9570312500 MiB   0.0000000000 MiB           1           MC_len = len(self.Classifiers)
+   223 303.9570312500 MiB   0.0000000000 MiB           1           self.g = np.array([])
+   224 303.9570312500 MiB   0.0000000000 MiB         101           for e in range(self.epochs):
+   225 303.9570312500 MiB   0.0000000000 MiB         100               self.theta_ = np.array([])
+   226                                                     #for storing gradient updates
+   227                                                     #for each base classfier, calc the weights gradient
+   228 303.9570312500 MiB   0.0000000000 MiB         100               a = nn_input*self.theta
+   229 303.9570312500 MiB   0.0000000000 MiB         100               YHat = self.sigmoid(a)
+   230 303.9570312500 MiB   0.0000000000 MiB         100               gradient = np.dot(nn_input.T,(YHat-YTrain.reshape(-1,1))).sum(axis=0) /(self.num_samples*1)
+   231 303.9570312500 MiB   0.0000000000 MiB         100               self.theta_ = np.append(self.theta_,self.theta-self.alpha*gradient)
+   232 303.9570312500 MiB   0.0000000000 MiB         100               self.g = np.append(self.g,self.theta-self.theta_)
+   233 303.9570312500 MiB   0.0000000000 MiB         100               normalization_factor = 0.000000000000000001
+   234 303.9570312500 MiB   0.0000000000 MiB         200               for i in range(MC_len):
+   235 303.9570312500 MiB   0.0000000000 MiB         200                   for j in range(MC_len):      
+   236 303.9570312500 MiB   0.0000000000 MiB         100                       normalization_factor += np.abs(np.dot(self.g[i].T, self.g[j]))
+   237 303.9570312500 MiB   0.0000000000 MiB         100               w = np.zeros(MC_len)
+   238 303.9570312500 MiB   0.0000000000 MiB         200               for i in range(MC_len):
+   239 303.9570312500 MiB   0.0000000000 MiB         200                   for j in range(MC_len):
+   240 303.9570312500 MiB   0.0000000000 MiB         100                       w[i] += np.dot(self.g[i].T, self.g[j])
+   241 303.9570312500 MiB   0.0000000000 MiB         100                   w[i] = w[i] / normalization_factor
+   242                                                         
+   243                                                     # min_w, max_w = min(w), max(w)
+   244                                                     # w = [(x-min_w)/(max_w-min_w+0.0001) for x in w]
+   245                                                     #initialize meta gradients
+   246 303.9570312500 MiB   0.0000000000 MiB         100               weighted_gradient = np.zeros(MC_len)
+   247 303.9570312500 MiB   0.0000000000 MiB         100               meta_a = np.matmul(nn_meta_input,self.theta_)
+   248 303.9570312500 MiB   0.0000000000 MiB         100               YPred = self.sigmoid(meta_a)
+   249                                                     #compute meta gradients
+   250 303.9570312500 MiB   0.0000000000 MiB         100               meta_gradient = np.dot(nn_meta_input.T,(YPred-YTest)) / (self.num_samples*1)
+   251 303.9570312500 MiB   0.0000000000 MiB         100               weighted_gradient += np.sum(w*meta_gradient)
+   252 303.9570312500 MiB   0.0000000000 MiB         100               self.theta = self.theta + self.beta*weighted_gradient/MC_len
+   253                                                 # print(self.theta)
+   254 303.9570312500 MiB   0.0000000000 MiB           1           Time.append(time.time() - NA_start)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   204 303.9570312500 MiB 303.9570312500 MiB           1       @profile (precision=10,stream=open("NonSkin_GC.log", "w+"))
+   205                                             def bulitModel(self,ep,X,y):
+   206 303.9570312500 MiB   0.0000000000 MiB           1           if ep > 0:
+   207 303.9570312500 MiB   0.0000000000 MiB           1               y_my_pred = (self.predict(X)>=0.5).astype(int)
+   208 303.9570312500 MiB   0.0000000000 MiB           1               DSGA_accuracy = accuracy_score(y,y_my_pred)
+   209 303.9570312500 MiB   0.0000000000 MiB           1               Acc.append(DSGA_accuracy)
+   210                                                 else:
+   211                                                     self.global_HTC.fit(X,y)
+   212                                                 #proposed algrithm train start,record the start time
+   213 303.9570312500 MiB   0.0000000000 MiB           1           NA_start = time.time()
+   214                                                 # XTrain,XTest,YTrain,YTest = train_test_split(X,y,random_state=11,test_size=0.2)
+   215 303.9570312500 MiB   0.0000000000 MiB           1           XTrain,XTest,YTrain,YTest = X,X,y,y
+   216                                                 # self.train_Classifiers(XTrain,YTrain)
+   217 303.9570312500 MiB   0.0000000000 MiB           1           self.train_Classifiers(X,y)
+   218 303.9570312500 MiB   0.0000000000 MiB           1           nn_input = self.classifiers_out(XTrain)
+   219 303.9570312500 MiB   0.0000000000 MiB           1           nn_meta_input = self.classifiers_out(XTest)
+   220                                                 
+   221 303.9570312500 MiB   0.0000000000 MiB           1           self.theta = self.theta/max(self.theta)  #normalization
+   222 303.9570312500 MiB   0.0000000000 MiB           1           MC_len = len(self.Classifiers)
+   223 303.9570312500 MiB   0.0000000000 MiB           1           self.g = np.array([])
+   224 303.9570312500 MiB   0.0000000000 MiB         101           for e in range(self.epochs):
+   225 303.9570312500 MiB   0.0000000000 MiB         100               self.theta_ = np.array([])
+   226                                                     #for storing gradient updates
+   227                                                     #for each base classfier, calc the weights gradient
+   228 303.9570312500 MiB   0.0000000000 MiB         100               a = nn_input*self.theta
+   229 303.9570312500 MiB   0.0000000000 MiB         100               YHat = self.sigmoid(a)
+   230 303.9570312500 MiB   0.0000000000 MiB         100               gradient = np.dot(nn_input.T,(YHat-YTrain.reshape(-1,1))).sum(axis=0) /(self.num_samples*1)
+   231 303.9570312500 MiB   0.0000000000 MiB         100               self.theta_ = np.append(self.theta_,self.theta-self.alpha*gradient)
+   232 303.9570312500 MiB   0.0000000000 MiB         100               self.g = np.append(self.g,self.theta-self.theta_)
+   233 303.9570312500 MiB   0.0000000000 MiB         100               normalization_factor = 0.000000000000000001
+   234 303.9570312500 MiB   0.0000000000 MiB         200               for i in range(MC_len):
+   235 303.9570312500 MiB   0.0000000000 MiB         200                   for j in range(MC_len):      
+   236 303.9570312500 MiB   0.0000000000 MiB         100                       normalization_factor += np.abs(np.dot(self.g[i].T, self.g[j]))
+   237 303.9570312500 MiB   0.0000000000 MiB         100               w = np.zeros(MC_len)
+   238 303.9570312500 MiB   0.0000000000 MiB         200               for i in range(MC_len):
+   239 303.9570312500 MiB   0.0000000000 MiB         200                   for j in range(MC_len):
+   240 303.9570312500 MiB   0.0000000000 MiB         100                       w[i] += np.dot(self.g[i].T, self.g[j])
+   241 303.9570312500 MiB   0.0000000000 MiB         100                   w[i] = w[i] / normalization_factor
+   242                                                         
+   243                                                     # min_w, max_w = min(w), max(w)
+   244                                                     # w = [(x-min_w)/(max_w-min_w+0.0001) for x in w]
+   245                                                     #initialize meta gradients
+   246 303.9570312500 MiB   0.0000000000 MiB         100               weighted_gradient = np.zeros(MC_len)
+   247 303.9570312500 MiB   0.0000000000 MiB         100               meta_a = np.matmul(nn_meta_input,self.theta_)
+   248 303.9570312500 MiB   0.0000000000 MiB         100               YPred = self.sigmoid(meta_a)
+   249                                                     #compute meta gradients
+   250 303.9570312500 MiB   0.0000000000 MiB         100               meta_gradient = np.dot(nn_meta_input.T,(YPred-YTest)) / (self.num_samples*1)
+   251 303.9570312500 MiB   0.0000000000 MiB         100               weighted_gradient += np.sum(w*meta_gradient)
+   252 303.9570312500 MiB   0.0000000000 MiB         100               self.theta = self.theta + self.beta*weighted_gradient/MC_len
+   253                                                 # print(self.theta)
+   254 303.9570312500 MiB   0.0000000000 MiB           1           Time.append(time.time() - NA_start)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   204 303.9570312500 MiB 303.9570312500 MiB           1       @profile (precision=10,stream=open("NonSkin_GC.log", "w+"))
+   205                                             def bulitModel(self,ep,X,y):
+   206 303.9570312500 MiB   0.0000000000 MiB           1           if ep > 0:
+   207 303.9570312500 MiB   0.0000000000 MiB           1               y_my_pred = (self.predict(X)>=0.5).astype(int)
+   208 303.9570312500 MiB   0.0000000000 MiB           1               DSGA_accuracy = accuracy_score(y,y_my_pred)
+   209 303.9570312500 MiB   0.0000000000 MiB           1               Acc.append(DSGA_accuracy)
+   210                                                 else:
+   211                                                     self.global_HTC.fit(X,y)
+   212                                                 #proposed algrithm train start,record the start time
+   213 303.9570312500 MiB   0.0000000000 MiB           1           NA_start = time.time()
+   214                                                 # XTrain,XTest,YTrain,YTest = train_test_split(X,y,random_state=11,test_size=0.2)
+   215 303.9570312500 MiB   0.0000000000 MiB           1           XTrain,XTest,YTrain,YTest = X,X,y,y
+   216                                                 # self.train_Classifiers(XTrain,YTrain)
+   217 304.0039062500 MiB   0.0468750000 MiB           1           self.train_Classifiers(X,y)
+   218 304.0820312500 MiB   0.0781250000 MiB           1           nn_input = self.classifiers_out(XTrain)
+   219 304.0820312500 MiB   0.0000000000 MiB           1           nn_meta_input = self.classifiers_out(XTest)
+   220                                                 
+   221 304.0820312500 MiB   0.0000000000 MiB           1           self.theta = self.theta/max(self.theta)  #normalization
+   222 304.0820312500 MiB   0.0000000000 MiB           1           MC_len = len(self.Classifiers)
+   223 304.0820312500 MiB   0.0000000000 MiB           1           self.g = np.array([])
+   224 304.0820312500 MiB   0.0000000000 MiB         101           for e in range(self.epochs):
+   225 304.0820312500 MiB   0.0000000000 MiB         100               self.theta_ = np.array([])
+   226                                                     #for storing gradient updates
+   227                                                     #for each base classfier, calc the weights gradient
+   228 304.0820312500 MiB   0.0000000000 MiB         100               a = nn_input*self.theta
+   229 304.0820312500 MiB   0.0000000000 MiB         100               YHat = self.sigmoid(a)
+   230 304.0820312500 MiB   0.0000000000 MiB         100               gradient = np.dot(nn_input.T,(YHat-YTrain.reshape(-1,1))).sum(axis=0) /(self.num_samples*1)
+   231 304.0820312500 MiB   0.0000000000 MiB         100               self.theta_ = np.append(self.theta_,self.theta-self.alpha*gradient)
+   232 304.0820312500 MiB   0.0000000000 MiB         100               self.g = np.append(self.g,self.theta-self.theta_)
+   233 304.0820312500 MiB   0.0000000000 MiB         100               normalization_factor = 0.000000000000000001
+   234 304.0820312500 MiB   0.0000000000 MiB         200               for i in range(MC_len):
+   235 304.0820312500 MiB   0.0000000000 MiB         200                   for j in range(MC_len):      
+   236 304.0820312500 MiB   0.0000000000 MiB         100                       normalization_factor += np.abs(np.dot(self.g[i].T, self.g[j]))
+   237 304.0820312500 MiB   0.0000000000 MiB         100               w = np.zeros(MC_len)
+   238 304.0820312500 MiB   0.0000000000 MiB         200               for i in range(MC_len):
+   239 304.0820312500 MiB   0.0000000000 MiB         200                   for j in range(MC_len):
+   240 304.0820312500 MiB   0.0000000000 MiB         100                       w[i] += np.dot(self.g[i].T, self.g[j])
+   241 304.0820312500 MiB   0.0000000000 MiB         100                   w[i] = w[i] / normalization_factor
+   242                                                         
+   243                                                     # min_w, max_w = min(w), max(w)
+   244                                                     # w = [(x-min_w)/(max_w-min_w+0.0001) for x in w]
+   245                                                     #initialize meta gradients
+   246 304.0820312500 MiB   0.0000000000 MiB         100               weighted_gradient = np.zeros(MC_len)
+   247 304.0820312500 MiB   0.0000000000 MiB         100               meta_a = np.matmul(nn_meta_input,self.theta_)
+   248 304.0820312500 MiB   0.0000000000 MiB         100               YPred = self.sigmoid(meta_a)
+   249                                                     #compute meta gradients
+   250 304.0820312500 MiB   0.0000000000 MiB         100               meta_gradient = np.dot(nn_meta_input.T,(YPred-YTest)) / (self.num_samples*1)
+   251 304.0820312500 MiB   0.0000000000 MiB         100               weighted_gradient += np.sum(w*meta_gradient)
+   252 304.0820312500 MiB   0.0000000000 MiB         100               self.theta = self.theta + self.beta*weighted_gradient/MC_len
+   253                                                 # print(self.theta)
+   254 304.0820312500 MiB   0.0000000000 MiB           1           Time.append(time.time() - NA_start)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   204 304.0820312500 MiB 304.0820312500 MiB           1       @profile (precision=10,stream=open("NonSkin_GC.log", "w+"))
+   205                                             def bulitModel(self,ep,X,y):
+   206 304.0820312500 MiB   0.0000000000 MiB           1           if ep > 0:
+   207 304.0820312500 MiB   0.0000000000 MiB           1               y_my_pred = (self.predict(X)>=0.5).astype(int)
+   208 304.0820312500 MiB   0.0000000000 MiB           1               DSGA_accuracy = accuracy_score(y,y_my_pred)
+   209 304.0820312500 MiB   0.0000000000 MiB           1               Acc.append(DSGA_accuracy)
+   210                                                 else:
+   211                                                     self.global_HTC.fit(X,y)
+   212                                                 #proposed algrithm train start,record the start time
+   213 304.0820312500 MiB   0.0000000000 MiB           1           NA_start = time.time()
+   214                                                 # XTrain,XTest,YTrain,YTest = train_test_split(X,y,random_state=11,test_size=0.2)
+   215 304.0820312500 MiB   0.0000000000 MiB           1           XTrain,XTest,YTrain,YTest = X,X,y,y
+   216                                                 # self.train_Classifiers(XTrain,YTrain)
+   217 304.0820312500 MiB   0.0000000000 MiB           1           self.train_Classifiers(X,y)
+   218 304.0820312500 MiB   0.0000000000 MiB           1           nn_input = self.classifiers_out(XTrain)
+   219 304.0820312500 MiB   0.0000000000 MiB           1           nn_meta_input = self.classifiers_out(XTest)
+   220                                                 
+   221 304.0820312500 MiB   0.0000000000 MiB           1           self.theta = self.theta/max(self.theta)  #normalization
+   222 304.0820312500 MiB   0.0000000000 MiB           1           MC_len = len(self.Classifiers)
+   223 304.0820312500 MiB   0.0000000000 MiB           1           self.g = np.array([])
+   224 304.0820312500 MiB   0.0000000000 MiB         101           for e in range(self.epochs):
+   225 304.0820312500 MiB   0.0000000000 MiB         100               self.theta_ = np.array([])
+   226                                                     #for storing gradient updates
+   227                                                     #for each base classfier, calc the weights gradient
+   228 304.0820312500 MiB   0.0000000000 MiB         100               a = nn_input*self.theta
+   229 304.0820312500 MiB   0.0000000000 MiB         100               YHat = self.sigmoid(a)
+   230 304.0820312500 MiB   0.0000000000 MiB         100               gradient = np.dot(nn_input.T,(YHat-YTrain.reshape(-1,1))).sum(axis=0) /(self.num_samples*1)
+   231 304.0820312500 MiB   0.0000000000 MiB         100               self.theta_ = np.append(self.theta_,self.theta-self.alpha*gradient)
+   232 304.0820312500 MiB   0.0000000000 MiB         100               self.g = np.append(self.g,self.theta-self.theta_)
+   233 304.0820312500 MiB   0.0000000000 MiB         100               normalization_factor = 0.000000000000000001
+   234 304.0820312500 MiB   0.0000000000 MiB         200               for i in range(MC_len):
+   235 304.0820312500 MiB   0.0000000000 MiB         200                   for j in range(MC_len):      
+   236 304.0820312500 MiB   0.0000000000 MiB         100                       normalization_factor += np.abs(np.dot(self.g[i].T, self.g[j]))
+   237 304.0820312500 MiB   0.0000000000 MiB         100               w = np.zeros(MC_len)
+   238 304.0820312500 MiB   0.0000000000 MiB         200               for i in range(MC_len):
+   239 304.0820312500 MiB   0.0000000000 MiB         200                   for j in range(MC_len):
+   240 304.0820312500 MiB   0.0000000000 MiB         100                       w[i] += np.dot(self.g[i].T, self.g[j])
+   241 304.0820312500 MiB   0.0000000000 MiB         100                   w[i] = w[i] / normalization_factor
+   242                                                         
+   243                                                     # min_w, max_w = min(w), max(w)
+   244                                                     # w = [(x-min_w)/(max_w-min_w+0.0001) for x in w]
+   245                                                     #initialize meta gradients
+   246 304.0820312500 MiB   0.0000000000 MiB         100               weighted_gradient = np.zeros(MC_len)
+   247 304.0820312500 MiB   0.0000000000 MiB         100               meta_a = np.matmul(nn_meta_input,self.theta_)
+   248 304.0820312500 MiB   0.0000000000 MiB         100               YPred = self.sigmoid(meta_a)
+   249                                                     #compute meta gradients
+   250 304.0820312500 MiB   0.0000000000 MiB         100               meta_gradient = np.dot(nn_meta_input.T,(YPred-YTest)) / (self.num_samples*1)
+   251 304.0820312500 MiB   0.0000000000 MiB         100               weighted_gradient += np.sum(w*meta_gradient)
+   252 304.0820312500 MiB   0.0000000000 MiB         100               self.theta = self.theta + self.beta*weighted_gradient/MC_len
+   253                                                 # print(self.theta)
+   254 304.0820312500 MiB   0.0000000000 MiB           1           Time.append(time.time() - NA_start)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   204 304.0820312500 MiB 304.0820312500 MiB           1       @profile (precision=10,stream=open("NonSkin_GC.log", "w+"))
+   205                                             def bulitModel(self,ep,X,y):
+   206 304.0820312500 MiB   0.0000000000 MiB           1           if ep > 0:
+   207 304.0820312500 MiB   0.0000000000 MiB           1               y_my_pred = (self.predict(X)>=0.5).astype(int)
+   208 304.0820312500 MiB   0.0000000000 MiB           1               DSGA_accuracy = accuracy_score(y,y_my_pred)
+   209 304.0820312500 MiB   0.0000000000 MiB           1               Acc.append(DSGA_accuracy)
+   210                                                 else:
+   211                                                     self.global_HTC.fit(X,y)
+   212                                                 #proposed algrithm train start,record the start time
+   213 304.0820312500 MiB   0.0000000000 MiB           1           NA_start = time.time()
+   214                                                 # XTrain,XTest,YTrain,YTest = train_test_split(X,y,random_state=11,test_size=0.2)
+   215 304.0820312500 MiB   0.0000000000 MiB           1           XTrain,XTest,YTrain,YTest = X,X,y,y
+   216                                                 # self.train_Classifiers(XTrain,YTrain)
+   217 304.0820312500 MiB   0.0000000000 MiB           1           self.train_Classifiers(X,y)
+   218 304.0820312500 MiB   0.0000000000 MiB           1           nn_input = self.classifiers_out(XTrain)
+   219 304.0820312500 MiB   0.0000000000 MiB           1           nn_meta_input = self.classifiers_out(XTest)
+   220                                                 
+   221 304.0820312500 MiB   0.0000000000 MiB           1           self.theta = self.theta/max(self.theta)  #normalization
+   222 304.0820312500 MiB   0.0000000000 MiB           1           MC_len = len(self.Classifiers)
+   223 304.0820312500 MiB   0.0000000000 MiB           1           self.g = np.array([])
+   224 304.0820312500 MiB   0.0000000000 MiB         101           for e in range(self.epochs):
+   225 304.0820312500 MiB   0.0000000000 MiB         100               self.theta_ = np.array([])
+   226                                                     #for storing gradient updates
+   227                                                     #for each base classfier, calc the weights gradient
+   228 304.0820312500 MiB   0.0000000000 MiB         100               a = nn_input*self.theta
+   229 304.0820312500 MiB   0.0000000000 MiB         100               YHat = self.sigmoid(a)
+   230 304.0820312500 MiB   0.0000000000 MiB         100               gradient = np.dot(nn_input.T,(YHat-YTrain.reshape(-1,1))).sum(axis=0) /(self.num_samples*1)
+   231 304.0820312500 MiB   0.0000000000 MiB         100               self.theta_ = np.append(self.theta_,self.theta-self.alpha*gradient)
+   232 304.0820312500 MiB   0.0000000000 MiB         100               self.g = np.append(self.g,self.theta-self.theta_)
+   233 304.0820312500 MiB   0.0000000000 MiB         100               normalization_factor = 0.000000000000000001
+   234 304.0820312500 MiB   0.0000000000 MiB         200               for i in range(MC_len):
+   235 304.0820312500 MiB   0.0000000000 MiB         200                   for j in range(MC_len):      
+   236 304.0820312500 MiB   0.0000000000 MiB         100                       normalization_factor += np.abs(np.dot(self.g[i].T, self.g[j]))
+   237 304.0820312500 MiB   0.0000000000 MiB         100               w = np.zeros(MC_len)
+   238 304.0820312500 MiB   0.0000000000 MiB         200               for i in range(MC_len):
+   239 304.0820312500 MiB   0.0000000000 MiB         200                   for j in range(MC_len):
+   240 304.0820312500 MiB   0.0000000000 MiB         100                       w[i] += np.dot(self.g[i].T, self.g[j])
+   241 304.0820312500 MiB   0.0000000000 MiB         100                   w[i] = w[i] / normalization_factor
+   242                                                         
+   243                                                     # min_w, max_w = min(w), max(w)
+   244                                                     # w = [(x-min_w)/(max_w-min_w+0.0001) for x in w]
+   245                                                     #initialize meta gradients
+   246 304.0820312500 MiB   0.0000000000 MiB         100               weighted_gradient = np.zeros(MC_len)
+   247 304.0820312500 MiB   0.0000000000 MiB         100               meta_a = np.matmul(nn_meta_input,self.theta_)
+   248 304.0820312500 MiB   0.0000000000 MiB         100               YPred = self.sigmoid(meta_a)
+   249                                                     #compute meta gradients
+   250 304.0820312500 MiB   0.0000000000 MiB         100               meta_gradient = np.dot(nn_meta_input.T,(YPred-YTest)) / (self.num_samples*1)
+   251 304.0820312500 MiB   0.0000000000 MiB         100               weighted_gradient += np.sum(w*meta_gradient)
+   252 304.0820312500 MiB   0.0000000000 MiB         100               self.theta = self.theta + self.beta*weighted_gradient/MC_len
+   253                                                 # print(self.theta)
+   254 304.0820312500 MiB   0.0000000000 MiB           1           Time.append(time.time() - NA_start)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   204 304.0820312500 MiB 304.0820312500 MiB           1       @profile (precision=10,stream=open("NonSkin_GC.log", "w+"))
+   205                                             def bulitModel(self,ep,X,y):
+   206 304.0820312500 MiB   0.0000000000 MiB           1           if ep > 0:
+   207 304.0820312500 MiB   0.0000000000 MiB           1               y_my_pred = (self.predict(X)>=0.5).astype(int)
+   208 304.0820312500 MiB   0.0000000000 MiB           1               DSGA_accuracy = accuracy_score(y,y_my_pred)
+   209 304.0820312500 MiB   0.0000000000 MiB           1               Acc.append(DSGA_accuracy)
+   210                                                 else:
+   211                                                     self.global_HTC.fit(X,y)
+   212                                                 #proposed algrithm train start,record the start time
+   213 304.0820312500 MiB   0.0000000000 MiB           1           NA_start = time.time()
+   214                                                 # XTrain,XTest,YTrain,YTest = train_test_split(X,y,random_state=11,test_size=0.2)
+   215 304.0820312500 MiB   0.0000000000 MiB           1           XTrain,XTest,YTrain,YTest = X,X,y,y
+   216                                                 # self.train_Classifiers(XTrain,YTrain)
+   217 304.0820312500 MiB   0.0000000000 MiB           1           self.train_Classifiers(X,y)
+   218 304.0820312500 MiB   0.0000000000 MiB           1           nn_input = self.classifiers_out(XTrain)
+   219 304.0820312500 MiB   0.0000000000 MiB           1           nn_meta_input = self.classifiers_out(XTest)
+   220                                                 
+   221 304.0820312500 MiB   0.0000000000 MiB           1           self.theta = self.theta/max(self.theta)  #normalization
+   222 304.0820312500 MiB   0.0000000000 MiB           1           MC_len = len(self.Classifiers)
+   223 304.0820312500 MiB   0.0000000000 MiB           1           self.g = np.array([])
+   224 304.0820312500 MiB   0.0000000000 MiB         101           for e in range(self.epochs):
+   225 304.0820312500 MiB   0.0000000000 MiB         100               self.theta_ = np.array([])
+   226                                                     #for storing gradient updates
+   227                                                     #for each base classfier, calc the weights gradient
+   228 304.0820312500 MiB   0.0000000000 MiB         100               a = nn_input*self.theta
+   229 304.0820312500 MiB   0.0000000000 MiB         100               YHat = self.sigmoid(a)
+   230 304.0820312500 MiB   0.0000000000 MiB         100               gradient = np.dot(nn_input.T,(YHat-YTrain.reshape(-1,1))).sum(axis=0) /(self.num_samples*1)
+   231 304.0820312500 MiB   0.0000000000 MiB         100               self.theta_ = np.append(self.theta_,self.theta-self.alpha*gradient)
+   232 304.0820312500 MiB   0.0000000000 MiB         100               self.g = np.append(self.g,self.theta-self.theta_)
+   233 304.0820312500 MiB   0.0000000000 MiB         100               normalization_factor = 0.000000000000000001
+   234 304.0820312500 MiB   0.0000000000 MiB         200               for i in range(MC_len):
+   235 304.0820312500 MiB   0.0000000000 MiB         200                   for j in range(MC_len):      
+   236 304.0820312500 MiB   0.0000000000 MiB         100                       normalization_factor += np.abs(np.dot(self.g[i].T, self.g[j]))
+   237 304.0820312500 MiB   0.0000000000 MiB         100               w = np.zeros(MC_len)
+   238 304.0820312500 MiB   0.0000000000 MiB         200               for i in range(MC_len):
+   239 304.0820312500 MiB   0.0000000000 MiB         200                   for j in range(MC_len):
+   240 304.0820312500 MiB   0.0000000000 MiB         100                       w[i] += np.dot(self.g[i].T, self.g[j])
+   241 304.0820312500 MiB   0.0000000000 MiB         100                   w[i] = w[i] / normalization_factor
+   242                                                         
+   243                                                     # min_w, max_w = min(w), max(w)
+   244                                                     # w = [(x-min_w)/(max_w-min_w+0.0001) for x in w]
+   245                                                     #initialize meta gradients
+   246 304.0820312500 MiB   0.0000000000 MiB         100               weighted_gradient = np.zeros(MC_len)
+   247 304.0820312500 MiB   0.0000000000 MiB         100               meta_a = np.matmul(nn_meta_input,self.theta_)
+   248 304.0820312500 MiB   0.0000000000 MiB         100               YPred = self.sigmoid(meta_a)
+   249                                                     #compute meta gradients
+   250 304.0820312500 MiB   0.0000000000 MiB         100               meta_gradient = np.dot(nn_meta_input.T,(YPred-YTest)) / (self.num_samples*1)
+   251 304.0820312500 MiB   0.0000000000 MiB         100               weighted_gradient += np.sum(w*meta_gradient)
+   252 304.0820312500 MiB   0.0000000000 MiB         100               self.theta = self.theta + self.beta*weighted_gradient/MC_len
+   253                                                 # print(self.theta)
+   254 304.0820312500 MiB   0.0000000000 MiB           1           Time.append(time.time() - NA_start)
+
+

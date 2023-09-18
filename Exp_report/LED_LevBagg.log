@@ -1,0 +1,100 @@
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 173.5429687500 MiB 173.5429687500 MiB           1   @profile(precision=10,stream=open("LED_LevBagg.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 177.9023437500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 177.9023437500 MiB   4.3593750000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 177.9023437500 MiB 177.9023437500 MiB           1   @profile(precision=10,stream=open("LED_LevBagg.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 178.0703125000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 178.0703125000 MiB   0.1679687500 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 178.0703125000 MiB 178.0703125000 MiB           1   @profile(precision=10,stream=open("LED_LevBagg.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 178.0703125000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 178.0156250000 MiB  -0.0546875000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 178.0156250000 MiB 178.0156250000 MiB           1   @profile(precision=10,stream=open("LED_LevBagg.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 178.0195312500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 178.0195312500 MiB   0.0039062500 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 178.0195312500 MiB 178.0195312500 MiB           1   @profile(precision=10,stream=open("LED_LevBagg.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 178.0195312500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 178.0195312500 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 178.0195312500 MiB 178.0195312500 MiB           1   @profile(precision=10,stream=open("LED_LevBagg.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 178.0195312500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 177.9921875000 MiB  -0.0273437500 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 177.9921875000 MiB 177.9921875000 MiB           1   @profile(precision=10,stream=open("LED_LevBagg.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 178.0000000000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 178.0000000000 MiB   0.0078125000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 178.0000000000 MiB 178.0000000000 MiB           1   @profile(precision=10,stream=open("LED_LevBagg.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 178.0000000000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 178.0000000000 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 178.0000000000 MiB 178.0000000000 MiB           1   @profile(precision=10,stream=open("LED_LevBagg.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 178.0039062500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 178.0039062500 MiB   0.0039062500 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 178.0039062500 MiB 178.0039062500 MiB           1   @profile(precision=10,stream=open("LED_LevBagg.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 178.0039062500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 178.0039062500 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+

@@ -1,0 +1,100 @@
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 303.9531250000 MiB 303.9531250000 MiB           1   @profile(precision=10,stream=open("census_oBoost.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 304.3281250000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 304.3281250000 MiB   0.3750000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 304.3281250000 MiB 304.3281250000 MiB           1   @profile(precision=10,stream=open("census_oBoost.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 304.3281250000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 304.0195312500 MiB  -0.3085937500 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 304.0195312500 MiB 304.0195312500 MiB           1   @profile(precision=10,stream=open("census_oBoost.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 304.0976562500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 304.0976562500 MiB   0.0781250000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 304.0976562500 MiB 304.0976562500 MiB           1   @profile(precision=10,stream=open("census_oBoost.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 304.1132812500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 304.1132812500 MiB   0.0156250000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 304.1132812500 MiB 304.1132812500 MiB           1   @profile(precision=10,stream=open("census_oBoost.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 304.1132812500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 304.1132812500 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 304.1132812500 MiB 304.1132812500 MiB           1   @profile(precision=10,stream=open("census_oBoost.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 304.1171875000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 304.1171875000 MiB   0.0039062500 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 304.1171875000 MiB 304.1171875000 MiB           1   @profile(precision=10,stream=open("census_oBoost.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 304.1171875000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 304.1171875000 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 304.1171875000 MiB 304.1171875000 MiB           1   @profile(precision=10,stream=open("census_oBoost.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 304.1171875000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 304.1171875000 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 304.1171875000 MiB 304.1171875000 MiB           1   @profile(precision=10,stream=open("census_oBoost.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 304.1171875000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 304.1171875000 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 304.1171875000 MiB 304.1171875000 MiB           1   @profile(precision=10,stream=open("census_oBoost.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 304.1171875000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 304.1171875000 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+

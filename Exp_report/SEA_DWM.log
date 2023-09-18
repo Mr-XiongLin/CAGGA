@@ -1,0 +1,100 @@
+Filename: C:\Users\xionglin\.spyder-py3\autosave\meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 193.8828125000 MiB 193.8828125000 MiB           1   @profile(precision=10,stream=open("SEA_DWM.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 193.9843750000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 193.9843750000 MiB   0.1015625000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: C:\Users\xionglin\.spyder-py3\autosave\meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 193.9843750000 MiB 193.9843750000 MiB           1   @profile(precision=10,stream=open("SEA_DWM.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 193.9882812500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 193.9882812500 MiB   0.0039062500 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: C:\Users\xionglin\.spyder-py3\autosave\meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 193.9882812500 MiB 193.9882812500 MiB           1   @profile(precision=10,stream=open("SEA_DWM.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 193.9882812500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 193.9882812500 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: C:\Users\xionglin\.spyder-py3\autosave\meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 193.9882812500 MiB 193.9882812500 MiB           1   @profile(precision=10,stream=open("SEA_DWM.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 193.9882812500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 193.9882812500 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: C:\Users\xionglin\.spyder-py3\autosave\meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 193.9882812500 MiB 193.9882812500 MiB           1   @profile(precision=10,stream=open("SEA_DWM.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 193.9882812500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 193.9882812500 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: C:\Users\xionglin\.spyder-py3\autosave\meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 193.9882812500 MiB 193.9882812500 MiB           1   @profile(precision=10,stream=open("SEA_DWM.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 193.9960937500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 193.9960937500 MiB   0.0078125000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: C:\Users\xionglin\.spyder-py3\autosave\meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 193.9960937500 MiB 193.9960937500 MiB           1   @profile(precision=10,stream=open("SEA_DWM.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 194.0351562500 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 194.0351562500 MiB   0.0390625000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: C:\Users\xionglin\.spyder-py3\autosave\meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 194.0351562500 MiB 194.0351562500 MiB           1   @profile(precision=10,stream=open("SEA_DWM.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 194.0390625000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 194.0390625000 MiB   0.0039062500 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: C:\Users\xionglin\.spyder-py3\autosave\meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 194.0390625000 MiB 194.0390625000 MiB           1   @profile(precision=10,stream=open("SEA_DWM.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 194.0390625000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 194.0390625000 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
+Filename: C:\Users\xionglin\.spyder-py3\autosave\meta.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   133 194.0390625000 MiB 194.0390625000 MiB           1   @profile(precision=10,stream=open("SEA_DWM.log", "w+"))
+   134                                         def test_train(ep,Mclf,X,y):
+   135 194.0390625000 MiB   0.0000000000 MiB           2       for clf,clf_label in Mclf:
+   136 194.0390625000 MiB   0.0000000000 MiB           1           Comp_start = time.time();y_pred = clf.predict(X);clf_a = accuracy_score(y, y_pred);clf.partial_fit(X, y,[1,0]);Time.append(time.time() - Comp_start);Acc.append(clf_a)
+
+
